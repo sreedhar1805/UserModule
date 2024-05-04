@@ -22,6 +22,7 @@ public class AppConfig {
 	@Autowired
 	private UserService userService;
 
+	//Inserting the default data
 	@PostConstruct
 	public void init() {
 		roleService.createDefaultRoles();
