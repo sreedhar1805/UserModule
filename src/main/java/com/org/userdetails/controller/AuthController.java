@@ -80,7 +80,6 @@ public class AuthController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
   
-	//User signin 
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -120,7 +119,6 @@ public class AuthController {
 		}
 	}
 
-	//user signup
   @PostMapping("/signup")
   public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
       logger.info("\u001B[32mReceived a signup request for username: {}\u001B[0m", signUpRequest.getUsername());
@@ -198,7 +196,6 @@ public class AuthController {
       return password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
   }
   
-  //forgot password to email  the token
   @PostMapping("/forgot-password")
   public ResponseEntity<?> forgotPassword(@RequestParam("email") String email) {
       logger.info("\u001B[32mReceived forgot password request for email: {}\u001B[0m", email);
